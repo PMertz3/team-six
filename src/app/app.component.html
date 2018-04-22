@@ -3,48 +3,16 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <form name="myForm" ng-controller="ExampleController">
-    <label>Hashtag:
-      <input type="text" name="input" ng-model="example.text"
-             ng-pattern="example.word" required ng-trim="false">
-    </label>
-  
-   </form>
-   <div id = "icon_container">
-      <div>
-          <div id = "twitter_icon">
-          </div>
-          <label class="container">Twitter
-              <input type="checkbox" checked="checked">
-              <span class="checkmark"></span>
-          </label>
+  <nav>
+    
+    <img  width = "100px" src="assets/twitter-icon.png" routerLink="/twitter"  />
+    <img width = "100px"src="assets/instagram-icon.png" routerLink="/instagram"  />
+    <img  width = "101px" src="assets/soundcloud-icon.png" routerLink="/soundcloud"  />
+    
+  </nav>
 
-      </div>
-
-      <div>
-          <div id = "instagram_icon">
-          </div>
-          <label class="container">Instagram
-              <input type="checkbox" checked="checked">
-              <span class="checkmark"></span>
-          </label>
-      </div>
-      
-   </div>
+  <router-outlet></router-outlet>
 
 </div>
-<h2>Here are some links to help you start: </h2>
 
-
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 

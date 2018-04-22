@@ -3,14 +3,24 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { TwitterComponent } from './twitter/twitter.component';
+import { InstagramComponent } from './instagram/instagram.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SoundcloudComponent } from './soundcloud/soundcloud.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TwitterComponent,
+    InstagramComponent,
+    DashboardComponent,
+    SoundcloudComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
