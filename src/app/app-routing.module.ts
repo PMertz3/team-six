@@ -2,17 +2,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { TwitterComponent }      from './twitter/twitter.component'
-import { InstagramComponent }      from './instagram/instagram.component'
+import { HashtagComponent }      from './hashtag/hashtag.component'
 import { DashboardComponent }      from './dashboard/dashboard.component'
-import {SoundcloudComponent}        from './soundcloud/soundcloud.component'
+import {TweetComponent}        from './tweet/tweet.component'
 
 const routes: Routes = [
-  { path: 'twitter', component: TwitterComponent },
-  { path: 'instagram', component: InstagramComponent },
+
+  { path: 'hashtag', component: HashtagComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'soundcloud', component: SoundcloudComponent }
+  { path: 'tweet', component: TweetComponent }
   
 ];
 
@@ -20,6 +19,5 @@ const routes: Routes = [
   exports: [ RouterModule ],
   imports: [ RouterModule.forRoot(routes) ],
 })
-
 
 export class AppRoutingModule { }

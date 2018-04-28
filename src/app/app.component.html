@@ -3,13 +3,18 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
+
+  <div id = "input_tag">
+    <input type="text" size="30"  placeholder="Enter #hashtag" >
+  </div>
   <nav>
     
-    <img  width = "100px" src="assets/twitter-icon.png" routerLink="/twitter"  />
-    <img width = "100px"src="assets/instagram-icon.png" routerLink="/instagram"  />
-    <img  width = "101px" src="assets/soundcloud-icon.png" routerLink="/soundcloud"  />
+    <img  width = "100px" src="assets/twitter-icon.png" routerLink="/tweet"  />
+    <img width = "100px"src="assets/instagram-icon.png" routerLink="/hashtag"  />
+    <img  width = "101px" src="assets/soundcloud-icon.png"  />
     
   </nav>
+
 
   <router-outlet></router-outlet>
 
