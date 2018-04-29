@@ -10,7 +10,7 @@ import { forEach } from '@angular/router/src/utils/collection';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'team6';
+  title = 'Twitter API Application';
   tweets = [];
   errorMessage: string;
   

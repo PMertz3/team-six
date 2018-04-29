@@ -1,23 +1,36 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+<body>
+    <header>
+        <h1 id = "project_name">
+            {{ title }}
+          </h1>
+        
+          <div id = "input_tag">
+            <input type="text" size="30"  placeholder="Enter #hashtag" >
+          </div>
+          <nav>
+            <a class = "buttons" routerLink="/tweet" >Display Tweets</a>
+            <a class = "buttons" routerLink="/hashtag" >HashTags</a>
+            <a class = "buttons" routerLink="/tweet" >Location Map</a>
+               
+          </nav>
 
-  <div id = "input_tag">
-    <input type="text" size="30"  placeholder="Enter #hashtag" >
-  </div>
-  <nav>
+          <div class="sidebar">
+              <a routerLink="/dashboard">Dashboard</a>
+            </div>
+  
+  
+  
+    </header>
     
-    <img  width = "100px" src="assets/twitter-icon.png" routerLink="/tweet"  />
-    <img width = "100px"src="assets/instagram-icon.png" routerLink="/hashtag"  />
-    <img  width = "101px" src="assets/soundcloud-icon.png"  />
-    
-  </nav>
+  
+  
+    <router-outlet></router-outlet>
 
 
-  <router-outlet></router-outlet>
+</body>
 
-</div>
+
+
 
 
