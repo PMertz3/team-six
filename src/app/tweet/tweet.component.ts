@@ -20,4 +20,8 @@ export class TweetComponent implements OnInit {
          error =>  this.errorMessage = <any>error);
  
     }
+
+    createCloud(){
+
+    }
 }
