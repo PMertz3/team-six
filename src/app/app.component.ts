@@ -23,7 +23,7 @@ export class AppComponent {
     }
 
     getTweets(){
-      this.twitterService.getTweets()
+      this.twitterService.getTweets('coffee')
       .subscribe(
          tweets => this.tweets = tweets,
          error =>  this.errorMessage = <any>error);

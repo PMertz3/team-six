@@ -16,7 +16,7 @@ export class HashtagComponent implements OnInit {
 
   ngOnInit() {
     
-    this.twitterService.getTweets()
+    this.twitterService.getTweets('coffee')
       .subscribe(
          tweets => this.tweets = tweets,
          error =>  this.errorMessage = <any>error);

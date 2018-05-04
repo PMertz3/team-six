@@ -14,7 +14,7 @@ export class TweetComponent implements OnInit {
   constructor(private twitterService: TwitterService){}
 
   ngOnInit() {
-    this.twitterService.getTweets()
+    this.twitterService.getTweets('coffee')
       .subscribe(
          tweets => this.tweets = tweets,
          error =>  this.errorMessage = <any>error);

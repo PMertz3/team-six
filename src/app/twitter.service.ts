@@ -22,8 +22,8 @@ export class TwitterService {
 
 
 
-  getTweets(): Observable<any> {
-    return this.http.get('http://localhost:3000/api/twitter');
+  getTweets(param): Observable<any> {
+    return this.http.get(`api/twitter?q=${param}`);
   }
 
 
