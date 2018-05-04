@@ -5,14 +5,15 @@ import { CommonModule } from '@angular/common';
 import { HashtagComponent }      from './hashtag/hashtag.component'
 import { DashboardComponent }      from './dashboard/dashboard.component'
 import {TweetComponent}        from './tweet/tweet.component'
+import { LocationComponent } from './location/location.component';
 
 const routes: Routes = [
 
   { path: 'hashtag', component: HashtagComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'tweet', component: TweetComponent }
-  
+  { path: 'tweet', component: TweetComponent },
+  { path: 'location', component: LocationComponent}
 ];
 
 @NgModule({

@@ -10,6 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { TwitterService } from './twitter.service';
 import { HashtagComponent } from './hashtag/hashtag.component';
 import { TweetComponent } from './tweet/tweet.component';
+import { LocationComponent } from './location/location.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { TweetComponent } from './tweet/tweet.component';
 
     DashboardComponent,
     HashtagComponent,
-    TweetComponent
+    TweetComponent,
+    LocationComponent
   ],
   imports: [
     BrowserModule,
