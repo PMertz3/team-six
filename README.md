@@ -19,7 +19,7 @@ cd team-six
 # Install dependencies 
 npm install
 # Run the dev build of application
-ng serve
+npm start
 #Should be localhosted on port 4200
 ```
 
