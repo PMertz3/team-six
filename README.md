@@ -22,8 +22,11 @@ npm install
 npm start
 #Should be localhosted on port 4200
 
-#To run test cases
+#To run unit test cases
 ng test
+
+#To run e2e test cases
+ng e2e
 ```
 
 ## Authors
