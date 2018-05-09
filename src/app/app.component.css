@@ -38,6 +38,10 @@ nav{
 
 }
 
+.buttons:hover {
+    opacity: .5;
+}
+
 #updateBtn {
     padding: 0.25rem;
     font-size: 0.9rem;
@@ -52,6 +56,10 @@ nav{
     background-color: rgba(255, 255, 255, 0.16);
 
     text-decoration: none
+}
+
+#updateBtn:hover {
+    opacity: .5;
 }
 
 .sidebar {

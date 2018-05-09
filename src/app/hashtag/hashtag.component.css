@@ -23,8 +23,12 @@ h2 {
     border-width: 1px;
     border-radius: 0.7rem;
 
-    color: rgb(116, 115, 115);
-    background-color: rgba(255, 255, 255, 0.16);
+    color: whitesmoke;
+    background-image: linear-gradient(90deg, #155799, #7c7484);
 
     text-decoration: none
+}
+
+#wcbtn:hover {
+    opacity: .5;
 }
