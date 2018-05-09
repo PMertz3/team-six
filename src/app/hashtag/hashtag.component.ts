@@ -10,12 +10,12 @@ import { trigger,state,style,transition,animate,keyframes,query,stagger } from '
   animations: [
     trigger('trig', [
       transition('* => *', [
-        query(':enter', style({ opacity: 0}), {optional: true}),
+        query('#tag_div', style({ opacity: 0}), {optional: true}),
 
-        query(':enter', stagger('300ms', [
-          animate('.6s ease', keyframes([
+        query('#tag_div', stagger('0ms', [
+          animate('1s ease', keyframes([
             style({opacity: 0, transform: 'translateY(75%)', offset: 0}),
-            style({opacity: .5, transform: 'translateY(-35px)', offset: .3}),
+            style({opacity: .5, transform: 'translateY(-35px)', offset: .6}),
             style({opacity: 1, transform: 'translateY(0)', offset: 1}),
           ]))]), {optional: true})
       ])

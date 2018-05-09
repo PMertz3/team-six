@@ -2,11 +2,11 @@
   <h2>
     Related Hashtags <button (click)="clickme()">Generate Word Cloud</button>
   </h2>
-  <div *ngFor="let tweet of tweets" [@trig]="tweets.length">
+  <div *ngFor="let tweet of tweets">
     <div >  
     </div>
-      <div >
-        <div id = "tag_div">{{tweet}}</div>
+      <div  [@trig]="tweets.length" >
+        <div  id = "tag_div">{{tweet}}</div>
       </div>
     </div>
     
