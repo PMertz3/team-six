@@ -7,7 +7,7 @@
         
           <div id = "input_tag">
             <input type="text" size="30" name="searchTag" placeholder="Enter #hashtag"  [(ngModel)]='tagHtml'>
-            <button (click)="updateService()">Update</button>
+            <button id="updateBtn" (click)="updateService()">Go</button>
           </div>
           <nav>
             <a class = "buttons" routerLink="/tweet" >Display Tweets</a>
