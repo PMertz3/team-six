@@ -7,6 +7,7 @@ import { AppRoutingModule } from '..//app-routing.module';
 import { DashboardComponent }      from '../dashboard/dashboard.component'
 import {TweetComponent}        from './tweet.component'
 import { LocationComponent } from '../location/location.component';
+import { WordcloudComponent } from '../wordcloud/wordcloud.component';
 import { APP_BASE_HREF } from '@angular/common';
 
 describe('TweetComponent', () => {
@@ -17,6 +18,7 @@ describe('TweetComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ 
         HashtagComponent, 
+        WordcloudComponent,
         TweetComponent,
         LocationComponent,
         DashboardComponent ],

@@ -8,6 +8,7 @@ import { DashboardComponent }      from '../dashboard/dashboard.component'
 import {TweetComponent}        from '../tweet/tweet.component'
 import { LocationComponent } from './location.component';
 import { APP_BASE_HREF } from '@angular/common';
+import { WordcloudComponent } from '../wordcloud/wordcloud.component';
 
 describe('LocationComponent', () => {
   let component: LocationComponent;
@@ -18,6 +19,7 @@ describe('LocationComponent', () => {
       declarations: [ 
         HashtagComponent, 
         TweetComponent,
+        WordcloudComponent,
         LocationComponent,
         DashboardComponent ],
       imports: [HttpClientModule,AppRoutingModule],
