@@ -1,4 +1,8 @@
 import { AppPage } from './app.po';
+import { HttpClientModule } from '@angular/common/http';
+import { browser, by, element } from 'protractor';
+
+import { TwitterService } from '../src/app/twitter.service';
 
 describe('team-six-app App', () => {
   let page: AppPage;
@@ -8,7 +12,51 @@ describe('team-six-app App', () => {
   });
 
   it('should display welcome message', () => {
-    page.navigateTo();
+    page.navigateTo('/');
     expect(page.getParagraphText()).toEqual('Twitter API Application');
   });
+
+  it('go button linked up', () =>{
+    page.navigateTo('/');
+    expect(page.getBtn()).toEqual('Go');
+  });
+
+  it('input field linked', () =>{
+    page.navigateTo('/');
+    expect(page.getInput()).toEqual('');
+  });
+  
+  it('location nav link present', () =>{
+    page.navigateTo('/');
+    expect(page.getNavEle('localNav')).toEqual('Location');
+  });
+  it('hashtag nav link present', () =>{
+    page.navigateTo('/');
+    expect(page.getNavEle('tagNav')).toEqual('HashTags');
+  });
+  it('tweet nav link present', () =>{
+    page.navigateTo('/');
+    expect(page.getNavEle('tweetNav')).toEqual('Display Tweets');
+  });
+  it('dashboard nav link present', () =>{
+    page.navigateTo('/');
+    expect(page.getNavEle('dashNav')).toEqual('Dashboard');
+  });
+
+  it('coffee is default in hastag', () =>{
+    page.navigateTo('/hashtag');
+    expect(page.getTagValue()).toEqual('coffee');
+  });
+
+  it('coffee is default in tweet', () =>{
+    page.navigateTo('/tweet');
+    expect(page.getTagValue()).toEqual('coffee');
+  });
+
+  it('coffee is default in location', () =>{
+    page.navigateTo('/location');
+    expect(page.getTagValue()).toEqual('coffee');
+  });
+
+
 });
