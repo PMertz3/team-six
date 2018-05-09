@@ -18,7 +18,7 @@ describe('AppComponent', () => {
         AppComponent,
         HashtagComponent,
         LocationComponent,
-        TweetComponent,
+        TweetComponent,        
         DashboardComponent
       ],
       imports: [

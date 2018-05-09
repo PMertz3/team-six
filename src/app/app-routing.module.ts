@@ -8,7 +8,6 @@ import {TweetComponent}        from './tweet/tweet.component'
 import { LocationComponent } from './location/location.component';
 
 const routes: Routes = [
-
   { path: 'hashtag', component: HashtagComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },

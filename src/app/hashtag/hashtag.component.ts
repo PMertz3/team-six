@@ -41,7 +41,7 @@ export class HashtagComponent implements OnInit {
          tweets => {
           for (let i=0; i < tweets.length; i++){
             for (let j=0; j < tweets[i].tags.length; j++){
-              if (tag.includes(tweets[i].tags[j])) {
+              if (tag.includes((tweets[i].tags[j]).toLowerCase())) {
                 //console.log("skip");
               } else {
                 tag.push(tweets[i].tags[j]);
