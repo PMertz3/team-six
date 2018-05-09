@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TwitterService } from '../twitter.service';
 import { trigger,state,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
+import { DataService } from "../data.service";
 
 @Component({
   selector: 'app-location',
@@ -27,16 +28,18 @@ export class LocationComponent implements OnInit {
   tweets = [];
   errorMessage: string;
   locate = [];
-  constructor(private twitterService: TwitterService){}
+  searchTag: string;
+
+  constructor(private twitterService: TwitterService,  private data: DataService){}
 
   ngOnInit() {
-    
-    this.twitterService.getTweets('coffee')
+    this.data.currentMessage.subscribe(message => this.searchTag = message);
+    this.twitterService.getTweets(this.searchTag)
       .subscribe(
         tweets => {
           for (let i=0; i < tweets.length; i++){
               if (tweets[i].location == "") {
-                console.log("skip");
+                //console.log("skip");
               } else {
                 this.locate.push(tweets[i].location);
             }
@@ -46,4 +49,21 @@ export class LocationComponent implements OnInit {
          error =>  this.errorMessage = <any>error);
     }
 
+    update() {
+      this.data.currentMessage.subscribe(message => this.searchTag = message);
+      let tag: string;
+      this.twitterService.getTweets(this.searchTag)
+      .subscribe(
+        tweets => {
+          for (let i=0; i < tweets.length; i++){
+              if (tweets[i].location == "") {
+                //console.log("skip");
+              } else {
+                this.locate.push(tweets[i].location);
+            }
+          }
+           return this.tweets = this.locate;
+         },
+         error =>  this.errorMessage = <any>error);
+    }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TwitterService} from '../twitter.service';
 import { trigger,state,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
+import { DataService } from "../data.service";
 
 @Component({
   selector: 'app-tweet',
@@ -25,11 +26,13 @@ import { trigger,state,style,transition,animate,keyframes,query,stagger } from '
 export class TweetComponent implements OnInit {
   tweets = [];
   errorMessage: string;
+  searchTag: string;
 
-  constructor(private twitterService: TwitterService){}
+  constructor(private twitterService: TwitterService, private data: DataService){}
 
   ngOnInit() {
-    this.twitterService.getTweets('coffee')
+    this.data.currentMessage.subscribe(message => this.searchTag = message);
+    this.twitterService.getTweets(this.searchTag)
       .subscribe(
          tweets => this.tweets = tweets,
          error =>  this.errorMessage = <any>error);
@@ -39,4 +42,14 @@ export class TweetComponent implements OnInit {
     createCloud(){
 
     }
+
+    update() {
+      this.data.currentMessage.subscribe(message => this.searchTag = message);
+      let tag: string;
+      this.twitterService.getTweets(this.searchTag)
+      .subscribe(
+        tweets => this.tweets = tweets,
+        error =>  this.errorMessage = <any>error);
+
+   }
 }

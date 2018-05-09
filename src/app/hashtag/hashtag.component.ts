@@ -41,7 +41,7 @@ export class HashtagComponent implements OnInit {
           for (let i=0; i < tweets.length; i++){
             for (let j=0; j < tweets[i].tags.length; j++){
               if (this.tags.includes(tweets[i].tags[j])) {
-                console.log("skip");
+                //console.log("skip");
               } else {
                 this.tags.push(tweets[i].tags[j]);
               }
@@ -50,7 +50,7 @@ export class HashtagComponent implements OnInit {
            return this.tweets = this.tags;
          },
          error =>  this.errorMessage = <any>error);
-    console.log(tag);
+    //console.log(tag);
     }
 
     keysAndWeights() {
@@ -67,7 +67,7 @@ export class HashtagComponent implements OnInit {
       console.log(this.searchTag);
     }
 
-    runAgain() {
+    update() {
       this.data.currentMessage.subscribe(message => this.searchTag = message);
       let tag: string;
       this.twitterService.getTweets(this.searchTag)
@@ -76,7 +76,7 @@ export class HashtagComponent implements OnInit {
           for (let i=0; i < tweets.length; i++){
             for (let j=0; j < tweets[i].tags.length; j++){
               if (this.tags.includes(tweets[i].tags[j])) {
-                console.log("skip");
+                //console.log("skip");
               } else {
                 this.tags.push(tweets[i].tags[j]);
               }
