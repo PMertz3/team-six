@@ -1,11 +1,14 @@
-
-<div *ngFor="let tweet of tweets">
-  <div >  
-  </div>
-    <div >
-      <div id = "tag_div">{{tweet.tags}}</div>
+<div id="back">
+  <h2>
+    Related Hashtags <button (click)="clickme()">Generate Word Cloud</button>
+  </h2>
+  <div *ngFor="let tweet of tweets" [@trig]="tweets.length">
+    <div >  
     </div>
+      <div >
+        <div id = "tag_div">{{tweet}}</div>
+      </div>
+    </div>
+    
   </div>
-  <button (click)="clickme()"></button>
-
   <router-outlet></router-outlet>

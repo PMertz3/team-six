@@ -5,7 +5,13 @@ body {
 	padding:0;
 }
 #tweet_div{
-    margin: 20px;
-    padding: 1.5px;
-
+    background-color: #ecece8 ;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 110%;
+    color: rgb(116, 115, 115);
+}
+#username{
+    color: rgb(13, 129, 168);
 }

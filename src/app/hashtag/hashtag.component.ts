@@ -7,31 +7,55 @@ import { trigger,state,style,transition,animate,keyframes,query,stagger } from '
   templateUrl: './hashtag.component.html',
   providers: [ TwitterService ],
   styleUrls: ['./hashtag.component.css'],
-  animations: []
+  animations: [
+    trigger('trig', [
+      transition('* => *', [
+        query(':enter', style({ opacity: 0}), {optional: true}),
+
+        query(':enter', stagger('300ms', [
+          animate('.6s ease', keyframes([
+            style({opacity: 0, transform: 'translateY(75%)', offset: 0}),
+            style({opacity: .5, transform: 'translateY(-35px)', offset: .3}),
+            style({opacity: 1, transform: 'translateY(0)', offset: 1}),
+          ]))]), {optional: true})
+      ])
+    ])
+  ]
 })
 export class HashtagComponent implements OnInit {
   tweets = [];
   errorMessage: string;
-  tags = {};
-
+  tags = [];
+  dict = {};
+  
   constructor(private twitterService: TwitterService){}
 
   ngOnInit() {
     
     this.twitterService.getTweets('coffee')
       .subscribe(
-         tweets => this.tweets = tweets,
+         tweets => {
+          for (let i=0; i < tweets.length; i++){
+            for (let j=0; j < tweets[i].tags.length; j++){
+              if (this.tags.includes(tweets[i].tags[j])) {
+                console.log("skip");
+              } else {
+                this.tags.push(tweets[i].tags[j]);
+              }
+            }
+          }
+           return this.tweets = this.tags;
+         },
          error =>  this.errorMessage = <any>error);
 
     }
 
-    clickme() {
-      for (let i=0; i < this.tweets.length; i++){
-        for (let j=0; j < this.tweets[i].tags.length; j++){
-          if (this.tweets[i].tags[j] in this.tags) {
-            this.tags[this.tweets[i].tags[j]] += 1;
+    keysAndWeights() {
+      for (let i=0; i < this.tweets.length; i++){{
+          if (this.tweets[i] in this.dict) {
+            this.dict[this.tweets[i]] += 1;
           } else {
-            this.tags[this.tweets[i].tags[j]] = 1;
+            this.dict[this.tweets[i]] = 1;
           }
         }
       }

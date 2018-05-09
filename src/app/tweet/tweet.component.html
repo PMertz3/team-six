@@ -1,10 +1,12 @@
-
+<h2>
+  Tweets:
+</h2>
 <div *ngFor="let tweet of tweets">
   <div>  
   </div>
     <div>
     
-      <div id = "tweet_div">{{tweet.text}}</div>
+      <div id = "tweet_div"><span id="username">{{tweet.username}}</span>: {{tweet.text}}</div>
     </div>
   </div>
 

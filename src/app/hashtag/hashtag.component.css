@@ -1,4 +1,8 @@
 #tag_div{
-    margin: 5px;
-    padding: 2px;
+    background-color: #ecece8 ;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 110%;
+    color: rgb(116, 115, 115);
 }
