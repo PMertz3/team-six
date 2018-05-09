@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {TwitterService} from '../twitter.service';
 import { AppComponent } from '../app.component';
 import { trigger,state,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
+import { DataService } from "../data.service";
 @Component({
   selector: 'app-hashtag',
   templateUrl: './hashtag.component.html',
@@ -27,12 +28,14 @@ export class HashtagComponent implements OnInit {
   errorMessage: string;
   tags = [];
   dict = {};
+  searchTag: string;
 
-  constructor(private twitterService: TwitterService){}
+  constructor(private twitterService: TwitterService, private data: DataService){}
 
   ngOnInit() {
-    let tag = document.getElementsByName("searchTag");
-    this.twitterService.getTweets('coffee')
+    let tag: string;
+    this.data.currentMessage.subscribe(message => this.searchTag = message);
+    this.twitterService.getTweets(this.searchTag)
       .subscribe(
          tweets => {
           for (let i=0; i < tweets.length; i++){
@@ -61,6 +64,26 @@ export class HashtagComponent implements OnInit {
       }
       let i = 0;
       console.log(this.tags);
+      console.log(this.searchTag);
     }
 
+    runAgain() {
+      this.data.currentMessage.subscribe(message => this.searchTag = message);
+      let tag: string;
+      this.twitterService.getTweets(this.searchTag)
+      .subscribe(
+         tweets => {
+          for (let i=0; i < tweets.length; i++){
+            for (let j=0; j < tweets[i].tags.length; j++){
+              if (this.tags.includes(tweets[i].tags[j])) {
+                console.log("skip");
+              } else {
+                this.tags.push(tweets[i].tags[j]);
+              }
+            }
+          }
+      this.tweets = this.tags;
+    },
+    error =>  this.errorMessage = <any>error);
+  }
 }

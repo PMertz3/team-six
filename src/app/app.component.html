@@ -2,11 +2,12 @@
 <body>
     <header>
         <h1 id = "project_name">
-            {{ title }}
+            {{ tag }}
           </h1>
         
           <div id = "input_tag">
-            <input type="text" size="30" name="searchTag" placeholder="Enter #hashtag"  value="{{searchTag}}">
+            <input type="text" size="30" name="searchTag" placeholder="Enter #hashtag"  [(ngModel)]='tagHtml'>
+            <button (click)="updateService()">Update</button>
           </div>
           <nav>
             <a class = "buttons" routerLink="/tweet" >Display Tweets</a>

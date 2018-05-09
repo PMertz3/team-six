@@ -6,7 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FormsModule } from '@angular/forms';
 
+import { DataService } from './data.service';
 import { TwitterService } from './twitter.service';
 import { HashtagComponent } from './hashtag/hashtag.component';
 import { TweetComponent } from './tweet/tweet.component';
@@ -26,10 +28,12 @@ import { LocationComponent } from './location/location.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [
-    TwitterService
+    TwitterService,
+    DataService
   ],
   bootstrap: [AppComponent]
 })
