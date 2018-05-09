@@ -27,13 +27,15 @@ import { DataService } from "../data.service";
 export class LocationComponent implements OnInit {
   tweets = [];
   errorMessage: string;
-  locate = [];
   searchTag: string;
+  oldTag: string; 
 
   constructor(private twitterService: TwitterService,  private data: DataService){}
 
   ngOnInit() {
     this.data.currentMessage.subscribe(message => this.searchTag = message);
+    this.oldTag = this.searchTag;
+    let tag = [];
     this.twitterService.getTweets(this.searchTag)
       .subscribe(
         tweets => {
@@ -41,17 +43,25 @@ export class LocationComponent implements OnInit {
               if (tweets[i].location == "") {
                 //console.log("skip");
               } else {
-                this.locate.push(tweets[i].location);
+                tag.push(tweets[i].location);
             }
           }
-           return this.tweets = this.locate;
+           return this.tweets = tag;
          },
          error =>  this.errorMessage = <any>error);
     }
 
+    ngDoCheck() {
+      if (this.searchTag !== this.oldTag) {
+        console.log(this.tweets);
+        this.oldTag = this.searchTag;
+        this.update();
+      }
+    }
+
     update() {
       this.data.currentMessage.subscribe(message => this.searchTag = message);
-      let tag: string;
+      let tag = [];
       this.twitterService.getTweets(this.searchTag)
       .subscribe(
         tweets => {
@@ -59,10 +69,10 @@ export class LocationComponent implements OnInit {
               if (tweets[i].location == "") {
                 //console.log("skip");
               } else {
-                this.locate.push(tweets[i].location);
+                tag.push(tweets[i].location);
             }
           }
-           return this.tweets = this.locate;
+           return this.tweets = tag;
          },
          error =>  this.errorMessage = <any>error);
     }
