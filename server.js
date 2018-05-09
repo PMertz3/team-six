@@ -28,7 +28,7 @@ app.use(bodyParser.json()); // for parsing application/json
 
 
 app.get('/api/twitter', (req, res) => {
-  console.log('received request', req.query.q);
+  //console.log('received request', req.query.q);
 	let twitterData = [];
 
   client.get('search/tweets', { q: `#${req.query.q}`}, function(error, tweets, response) {
