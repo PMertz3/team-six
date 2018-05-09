@@ -26,28 +26,29 @@ import { DataService } from "../data.service";
 export class HashtagComponent implements OnInit {
   tweets = [];
   errorMessage: string;
-  tags = [];
   dict = {};
   searchTag: string;
+  oldTag: string;
 
   constructor(private twitterService: TwitterService, private data: DataService){}
 
   ngOnInit() {
-    let tag: string;
+    let tag = [];
     this.data.currentMessage.subscribe(message => this.searchTag = message);
+    this.oldTag = this.searchTag;
     this.twitterService.getTweets(this.searchTag)
       .subscribe(
          tweets => {
           for (let i=0; i < tweets.length; i++){
             for (let j=0; j < tweets[i].tags.length; j++){
-              if (this.tags.includes(tweets[i].tags[j])) {
+              if (tag.includes(tweets[i].tags[j])) {
                 //console.log("skip");
               } else {
-                this.tags.push(tweets[i].tags[j]);
+                tag.push(tweets[i].tags[j]);
               }
             }
           }
-           return this.tweets = this.tags;
+           return this.tweets = tag;
          },
          error =>  this.errorMessage = <any>error);
     //console.log(tag);
@@ -63,26 +64,36 @@ export class HashtagComponent implements OnInit {
         }
       }
       let i = 0;
-      console.log(this.tags);
       console.log(this.searchTag);
     }
 
+    ngDoCheck() {
+      if (this.searchTag !== this.oldTag) {
+        console.log(this.tweets);
+        this.oldTag = this.searchTag;
+        this.update();
+      }
+    }
+
     update() {
-      this.data.currentMessage.subscribe(message => this.searchTag = message);
-      let tag: string;
+      //this.data.currentMessage.subscribe(message => this.searchTag = message);
+      console.log(this.searchTag);
+      this.tweets = [];
+      let tag = [];
       this.twitterService.getTweets(this.searchTag)
       .subscribe(
          tweets => {
           for (let i=0; i < tweets.length; i++){
             for (let j=0; j < tweets[i].tags.length; j++){
-              if (this.tags.includes(tweets[i].tags[j])) {
+              if (tag.includes(tweets[i].tags[j])) {
                 //console.log("skip");
               } else {
-                this.tags.push(tweets[i].tags[j]);
+                tag.push(tweets[i].tags[j]);
               }
             }
           }
-      this.tweets = this.tags;
+      this.tweets = tag;
+      console.log(tag);
     },
     error =>  this.errorMessage = <any>error);
   }

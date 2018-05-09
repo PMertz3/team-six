@@ -27,20 +27,29 @@ export class TweetComponent implements OnInit {
   tweets = [];
   errorMessage: string;
   searchTag: string;
-
+  oldTag: string;
+  
   constructor(private twitterService: TwitterService, private data: DataService){}
 
   ngOnInit() {
     this.data.currentMessage.subscribe(message => this.searchTag = message);
+    this.oldTag = this.searchTag;
     this.twitterService.getTweets(this.searchTag)
       .subscribe(
          tweets => this.tweets = tweets,
          error =>  this.errorMessage = <any>error);
- 
+    }
+    
+    createCloud(){
+      console.log(this.tweets);
     }
 
-    createCloud(){
-
+    ngDoCheck() {
+      if (this.searchTag !== this.oldTag) {
+        console.log(this.tweets);
+        this.oldTag = this.searchTag;
+        this.update();
+      }
     }
 
     update() {

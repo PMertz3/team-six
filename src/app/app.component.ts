@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
     }
 
     updateService() {
-      if (this.tagHtml != undefined){
+      if (this.tagHtml !== undefined){
         this.tagHtml = this.tagHtml.trim();
         if (this.tagHtml.split(' ').length != 1){
           alert("Please only use 1 word");
