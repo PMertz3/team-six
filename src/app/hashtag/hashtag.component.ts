@@ -27,11 +27,11 @@ export class HashtagComponent implements OnInit {
   errorMessage: string;
   tags = [];
   dict = {};
-  
+
   constructor(private twitterService: TwitterService){}
 
   ngOnInit() {
-    
+    let tag = document.getElementsByName("searchTag");
     this.twitterService.getTweets('coffee')
       .subscribe(
          tweets => {
@@ -47,7 +47,7 @@ export class HashtagComponent implements OnInit {
            return this.tweets = this.tags;
          },
          error =>  this.errorMessage = <any>error);
-
+    console.log(tag);
     }
 
     keysAndWeights() {

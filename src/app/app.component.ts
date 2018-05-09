@@ -13,7 +13,7 @@ export class AppComponent {
   title = 'Twitter API Application';
   tweets = [];
   errorMessage: string;
-  
+
   constructor(private twitterService: TwitterService){}
 
   ngOnInit() {
