@@ -21,6 +21,9 @@ npm install
 # Run the dev build of application
 npm start
 #Should be localhosted on port 4200
+
+#To run test cases
+ng test
 ```
 
 ## Authors
