@@ -6,10 +6,8 @@ import { HashtagComponent }      from './hashtag/hashtag.component'
 import { DashboardComponent }      from './dashboard/dashboard.component'
 import {TweetComponent}        from './tweet/tweet.component'
 import { LocationComponent } from './location/location.component';
-import { WordcloudComponent } from './wordcloud/wordcloud.component';
 
 const routes: Routes = [
-  { path: 'wordcloud', component: WordcloudComponent },
   { path: 'hashtag', component: HashtagComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },

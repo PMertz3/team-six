@@ -10,7 +10,6 @@ import { DashboardComponent }      from './dashboard/dashboard.component'
 import {TweetComponent}        from './tweet/tweet.component'
 import { LocationComponent } from './location/location.component';
 import { APP_BASE_HREF } from '@angular/common';
-import { WordcloudComponent } from './wordcloud/wordcloud.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -19,8 +18,7 @@ describe('AppComponent', () => {
         AppComponent,
         HashtagComponent,
         LocationComponent,
-        TweetComponent,
-        WordcloudComponent,
+        TweetComponent,        
         DashboardComponent
       ],
       imports: [

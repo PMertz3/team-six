@@ -13,7 +13,6 @@ import { TwitterService } from './twitter.service';
 import { HashtagComponent } from './hashtag/hashtag.component';
 import { TweetComponent } from './tweet/tweet.component';
 import { LocationComponent } from './location/location.component';
-import { WordcloudComponent } from './wordcloud/wordcloud.component';
 
 
 @NgModule({
@@ -23,8 +22,7 @@ import { WordcloudComponent } from './wordcloud/wordcloud.component';
     DashboardComponent,
     HashtagComponent,
     TweetComponent,
-    LocationComponent,
-    WordcloudComponent
+    LocationComponent
   ],
   imports: [
     BrowserModule,
