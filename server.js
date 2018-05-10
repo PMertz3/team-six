@@ -7,7 +7,6 @@ let express = require("express"),
 	app = express();
 
 const cors = require('cors')
-// const Twitter = require('twit');
 
 var corsOptions = {
 	origin: 'http://localhost:4200',
@@ -23,8 +22,6 @@ const client = new Twitter({
 
 app.use(cors(corsOptions))
 app.use(bodyParser.json()); // for parsing application/json
-// app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-
 
 
 app.get('/api/twitter', (req, res) => {
@@ -57,15 +54,6 @@ app.get('/api/twitter', (req, res) => {
 		// console.log(twitterData) 	
 	});
 
-	// client
-	// 	.get('twitter')
-	// 	.then(data => {
-	// 	
-	// 	res.send(data);
-	// 	})
-	// 	.catch(error => {
-	// 	res.send(error);
-	// 	});
 });
 
 app.listen(3000, () => {
