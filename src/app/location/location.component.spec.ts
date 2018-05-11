@@ -8,7 +8,7 @@ import { DashboardComponent }      from '../dashboard/dashboard.component'
 import {TweetComponent}        from '../tweet/tweet.component'
 import { LocationComponent } from './location.component';
 import { APP_BASE_HREF } from '@angular/common';
-
+import { MediaComponent } from '../media/media.component';
 describe('LocationComponent', () => {
   let component: LocationComponent;
   let fixture: ComponentFixture<LocationComponent>;
@@ -19,7 +19,8 @@ describe('LocationComponent', () => {
         HashtagComponent, 
         TweetComponent,
         LocationComponent,
-        DashboardComponent ],
+        DashboardComponent,
+        MediaComponent ],
       imports: [HttpClientModule,AppRoutingModule],
       providers: [TwitterService, DataService,
         { provide: APP_BASE_HREF, useValue : '/location' }],

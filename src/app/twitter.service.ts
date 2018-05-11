@@ -11,6 +11,7 @@ export interface TwitterResponse{
   data: any;
   response: any;
   name: string;
+  media: any;
 }
 
 @Injectable()

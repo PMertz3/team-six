@@ -10,6 +10,7 @@ import { DashboardComponent }      from './dashboard/dashboard.component'
 import {TweetComponent}        from './tweet/tweet.component'
 import { LocationComponent } from './location/location.component';
 import { APP_BASE_HREF } from '@angular/common';
+import { MediaComponent } from './media/media.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -19,7 +20,8 @@ describe('AppComponent', () => {
         HashtagComponent,
         LocationComponent,
         TweetComponent,        
-        DashboardComponent
+        DashboardComponent,
+        MediaComponent
       ],
       imports: [
         HttpClientModule,
