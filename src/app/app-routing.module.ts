@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'location/:q', component: LocationComponent},
   { path: 'location', component: LocationComponent},
   { path: 'media/:q', component: MediaComponent},
-  { path: 'media/:q', component: MediaComponent}
+  { path: 'media', component: MediaComponent}
 ];
 
 @NgModule({
