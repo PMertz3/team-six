@@ -9,12 +9,16 @@ import { LocationComponent } from './location/location.component';
 import { MediaComponent } from './media/media.component';
 
 const routes: Routes = [
+  { path: 'hashtag/:q', component: HashtagComponent },
   { path: 'hashtag', component: HashtagComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'tweet/:q', component: TweetComponent },
   { path: 'tweet', component: TweetComponent },
+  { path: 'location/:q', component: LocationComponent},
   { path: 'location', component: LocationComponent},
-  { path: 'media', component: MediaComponent},
+  { path: 'media/:q', component: MediaComponent},
+  { path: 'media/:q', component: MediaComponent}
 ];
 
 @NgModule({

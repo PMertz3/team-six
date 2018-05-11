@@ -3,6 +3,7 @@ import {TwitterService} from '../twitter.service';
 import { AppComponent } from '../app.component';
 import { trigger,state,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
 import { DataService } from "../data.service";
+import { ActivatedRoute, Router } from "@angular/router";
 @Component({
   selector: 'app-hashtag',
   templateUrl: './hashtag.component.html',
@@ -30,7 +31,21 @@ export class HashtagComponent implements OnInit {
   searchTag: string;
   oldTag: string;
 
-  constructor(private twitterService: TwitterService, private data: DataService){}
+  constructor(private twitterService: TwitterService, private data: DataService, private route: ActivatedRoute, private router: Router){
+    this.route.params
+      .subscribe( params => {
+        //console.log(params);
+        if (params['q'] !== undefined){
+          let testVar = params['q'].trim();
+          if (testVar.split(' ').length != 1){
+            alert("Please only use 1 word");
+            this.data.changeMessage(testVar);
+          } else {
+            this.data.changeMessage(testVar);
+          }
+        }
+      });
+  }
 
   ngOnInit() {
     let tag = [];
@@ -64,11 +79,12 @@ export class HashtagComponent implements OnInit {
         }
       }
       let i = 0;
-      console.log(this.searchTag);
+      //console.log(this.searchTag);
     }
 
     ngDoCheck() {
       if (this.searchTag !== this.oldTag) {
+        this.router.navigate(['hashtag', this.searchTag]);
         console.log(this.tweets);
         this.oldTag = this.searchTag;
         this.update();

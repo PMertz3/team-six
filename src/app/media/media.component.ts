@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {TwitterService} from '../twitter.service';
 import { trigger,state,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
 import { DataService } from "../data.service";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-tweet',
@@ -31,7 +32,21 @@ export class MediaComponent implements OnInit {
   searchTag: string;
   oldTag: string;
   
-  constructor(private twitterService: TwitterService, private data: DataService){}
+  constructor(private twitterService: TwitterService, private data: DataService, private route: ActivatedRoute, private router: Router){
+    this.route.params
+      .subscribe( params => {
+        //console.log(params);
+        if (params['q'] !== undefined){
+          let testVar = params['q'].trim();
+          if (testVar.split(' ').length != 1){
+            alert("Please only use 1 word");
+            this.data.changeMessage(testVar);
+          } else {
+            this.data.changeMessage(testVar);
+          }
+        }
+      });
+  }
 
   ngOnInit() {
     this.data.currentMessage.subscribe(message => this.searchTag = message);
@@ -48,6 +63,7 @@ export class MediaComponent implements OnInit {
 
     ngDoCheck() {
       if (this.searchTag !== this.oldTag) {
+        this.router.navigate(['media', this.searchTag]);
         console.log(this.tweets);
         this.oldTag = this.searchTag;
         this.update();
