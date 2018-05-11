@@ -35,7 +35,6 @@ export class LocationComponent implements OnInit {
   constructor(private twitterService: TwitterService, private data: DataService, private route: ActivatedRoute, private router: Router){
     this.route.params
       .subscribe( params => {
-        //console.log(params);
         if (params['q'] !== undefined){
           let testVar = params['q'].trim();
           if (testVar.split(' ').length != 1){
@@ -58,7 +57,6 @@ export class LocationComponent implements OnInit {
         tweets => {
           for (let i=0; i < tweets.length; i++){
               if (tweets[i].location == "") {
-                //console.log("skip");
               } else {
                 tag.push(tweets[i].location);
             }
@@ -72,7 +70,6 @@ export class LocationComponent implements OnInit {
     ngDoCheck() {
       if (this.searchTag !== this.oldTag) {
         this.router.navigate(['location', this.searchTag]);
-        console.log(this.tweets);
         this.oldTag = this.searchTag;
         this.update();
       }
@@ -86,7 +83,6 @@ export class LocationComponent implements OnInit {
         tweets => {
           for (let i=0; i < tweets.length; i++){
               if (tweets[i].location == "") {
-                //console.log("skip");
               } else {
                 tag.push(tweets[i].location);
             }

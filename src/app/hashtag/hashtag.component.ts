@@ -34,7 +34,6 @@ export class HashtagComponent implements OnInit {
   constructor(private twitterService: TwitterService, private data: DataService, private route: ActivatedRoute, private router: Router){
     this.route.params
       .subscribe( params => {
-        //console.log(params);
         if (params['q'] !== undefined){
           let testVar = params['q'].trim();
           if (testVar.split(' ').length != 1){
@@ -57,7 +56,6 @@ export class HashtagComponent implements OnInit {
           for (let i=0; i < tweets.length; i++){
             for (let j=0; j < tweets[i].tags.length; j++){
               if (tag.includes((tweets[i].tags[j]).toLowerCase())) {
-                //console.log("skip");
               } else {
                 tag.push(tweets[i].tags[j]);
               }
@@ -66,7 +64,6 @@ export class HashtagComponent implements OnInit {
            return this.tweets = tag;
          },
          error =>  this.errorMessage = <any>error);
-    //console.log(tag);
     }
 
     keysAndWeights() {
@@ -79,21 +76,17 @@ export class HashtagComponent implements OnInit {
         }
       }
       let i = 0;
-      //console.log(this.searchTag);
     }
 
     ngDoCheck() {
       if (this.searchTag !== this.oldTag) {
         this.router.navigate(['hashtag', this.searchTag]);
-        console.log(this.tweets);
         this.oldTag = this.searchTag;
         this.update();
       }
     }
 
     update() {
-      //this.data.currentMessage.subscribe(message => this.searchTag = message);
-      console.log(this.searchTag);
       this.tweets = [];
       let tag = [];
       this.twitterService.getTweets(this.searchTag)
@@ -102,14 +95,12 @@ export class HashtagComponent implements OnInit {
           for (let i=0; i < tweets.length; i++){
             for (let j=0; j < tweets[i].tags.length; j++){
               if (tag.includes(tweets[i].tags[j])) {
-                //console.log("skip");
               } else {
                 tag.push(tweets[i].tags[j]);
               }
             }
           }
       this.tweets = tag;
-      console.log(tag);
     },
     error =>  this.errorMessage = <any>error);
   }

@@ -33,7 +33,6 @@ export class TweetComponent implements OnInit {
   constructor(private twitterService: TwitterService, private data: DataService, private route: ActivatedRoute, private router: Router){
     this.route.params
       .subscribe( params => {
-        //console.log(params);
         if (params['q'] !== undefined){
           let testVar = params['q'].trim();
           if (testVar.split(' ').length != 1){
@@ -62,7 +61,6 @@ export class TweetComponent implements OnInit {
     ngDoCheck() {
       if (this.searchTag !== this.oldTag) {
         this.router.navigate(['tweet', this.searchTag]);
-        console.log(this.tweets);
         this.oldTag = this.searchTag;
         this.update();
       }
