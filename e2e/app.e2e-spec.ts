@@ -70,6 +70,11 @@ describe('team-six-app App', () => {
     expect(x.count()).toEqual(4);
   });
 
+  it('dashboard button exists', () =>{
+    page.navigateTo('/');
+    var x = element.all(by.css('.sidebar'));
+    expect(x.count()).toEqual(1);
+  });
 
 
 });
