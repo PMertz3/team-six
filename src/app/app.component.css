@@ -34,13 +34,53 @@ nav{
     color: rgba(249, 247, 247, 0.7);
     background-color: rgba(255, 255, 255, 0.16);
 
-    text-decoration: none
+    text-decoration: none;
+
+    transition:all 0.5s;
+    cursor: pointer;
 
 }
 
-.buttons:hover {
+.buttons span{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.buttons span:after{
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top:0;
+    right: -20px;
+    transition: 0.5s;
+}
+.buttons:hover span {
+  padding-right: 25px;
+}
+
+.buttons:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.buttons:active {
     opacity: .5;
 }
+
+.GO {
+    cursor: pointer;
+    
+}
+
+.GO:hover {background-color: #3e8e41}
+
+.GO:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(2px);
+}
+
 
 #updateBtn {
     padding: 0.25rem;
@@ -58,7 +98,7 @@ nav{
     text-decoration: none
 }
 
-#updateBtn:hover {
+#updateBtn:active {
     opacity: .5;
 }
 
