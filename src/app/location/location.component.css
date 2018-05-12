@@ -1,15 +1,12 @@
 #locate_div {
     background-color: #ecece8 ;
-    display: inline-block;
+    display: block;
     margin: 10px;
     margin-left: .5rem;
     border-radius: 5px;
-    padding: 5px;
+    padding: 20px;
     font-size: 110%;
     color: rgb(116, 115, 115);
-}
-#map_container{
-    height: 500px;
 }
 
 h2 {
