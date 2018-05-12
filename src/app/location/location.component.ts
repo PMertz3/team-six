@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { TwitterService } from '../twitter.service';
 import { trigger,state,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
 import { DataService } from "../data.service";
-import * as DataMap from 'datamaps';
 import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
@@ -64,7 +63,6 @@ export class LocationComponent implements OnInit {
            return this.tweets = tag;
          },
          error =>  this.errorMessage = <any>error);
-    this.buildMap()
     }
 
     ngDoCheck() {
@@ -91,9 +89,5 @@ export class LocationComponent implements OnInit {
          },
          error =>  this.errorMessage = <any>error);
     }
-    buildMap(){
-      let map = new DataMap({element: document.getElementById('map_container'),
-          scope:"world"})
 
-    }
 }
