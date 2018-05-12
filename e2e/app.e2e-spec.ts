@@ -58,5 +58,18 @@ describe('team-six-app App', () => {
     expect(page.getTagValue()).toEqual('coffee');
   });
 
+  it('get button exists', () =>{
+    page.navigateTo('/');
+    var x = element(by.id('updateBtn'));
+    expect(x).toBeDefined();
+  });
+
+  it('the 4 other buttons exist', () =>{
+    page.navigateTo('/');
+    var x = element.all(by.css('.buttons'));
+    expect(x.count()).toEqual(4);
+  });
+
+
 
 });
