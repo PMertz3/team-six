@@ -4,7 +4,8 @@ Pull data from twitter, parse and display in an interesting way <br />
 Single Page Web App
 
 **Todo** <br />
-	Create the program
+Implement Google Map Api View
+Implement Word Cloud View
 
 ## To Use
 
