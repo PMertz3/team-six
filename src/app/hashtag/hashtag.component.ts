@@ -66,6 +66,12 @@ export class HashtagComponent implements OnInit {
          error =>  this.errorMessage = <any>error);
     }
 
+    calcWordCloud() {
+      this.tweets.forEach( el => {
+        console.log(el);
+      });
+    }
+
     keysAndWeights() {
       for (let i=0; i < this.tweets.length; i++){{
           if (this.tweets[i] in this.dict) {
