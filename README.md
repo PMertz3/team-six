@@ -1,8 +1,7 @@
 #	Purpose
 
-This programs purpose is to get us an A in CSC515 <br />
-Will be a related tag word cloud pulling from social media websites <br />
-Current Version is 0.1.0
+Pull data from twitter, parse and display in an interesting way <br />
+Single Page Web App
 
 **Todo** <br />
 	Create the program
